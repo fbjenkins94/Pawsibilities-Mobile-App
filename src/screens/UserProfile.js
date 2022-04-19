@@ -1,5 +1,6 @@
 import React from 'react';
-import { Text, View, StyleSheet, FlatList, Image, Pressable } from 'react-native';
+import { Text, View, StyleSheet, FlatList, Image, Pressable,  } from 'react-native';
+import NavMenu from '../Components/NavMenu.js';
 
 const UserProfile = ({ navigation }) => {
     DATA = [
@@ -20,7 +21,8 @@ const UserProfile = ({ navigation }) => {
 
 
     return (
-        <View>
+        <View style={{ flex: 1 }}>
+
             <View style={styles.userInfo}>
                 <View style={styles.pictureContainer}>
                     <Image
@@ -46,7 +48,13 @@ const UserProfile = ({ navigation }) => {
                     }}
                     keyExtractor={item => item.Text}
                 />
-            </View>
+            </View>            
+
+            <View style={{ paddingTop: 235 }}>
+            <NavMenu
+                navOne={() => navigation.navigate('Success', { PropText: 'This page is currently under construction. Check back later!' })}
+                navTwo={() => navigation.navigate('PetsScreen')}
+                navThree={() => navigation.navigate('UserProfile')} /></View>
         </View>
     );
 };

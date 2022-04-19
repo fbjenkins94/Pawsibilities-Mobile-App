@@ -32,9 +32,9 @@ const navigator = createStackNavigator(
         Question: Question,
     },
     {
-        initialRouteName: "PetsScreen",
+        initialRouteName: "HomeScreen",
         defaultNavigationOptions: {
-            title: "PetsScreen",
+            title: "Welcome",
         },
     }
 );

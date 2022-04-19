@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { ScrollView, SafeAreaView, StyleSheet, TextInput, View, Text, Pressable, Image } from "react-native";
 import pawsAPI from '../API/PawsBack.js';
+import NavMenu from '../Components/NavMenu.js';
 
 const EditProfile = ({ navigation }) => {
     const [email, onEmail] = React.useState("forestbreeze94@gmail.com");
@@ -76,6 +77,12 @@ const EditProfile = ({ navigation }) => {
                 }>
                 <Text style={{ color: 'white', fontSize: 18, }}>FINISH EDITS</Text>
             </Pressable>
+
+            <View style={{ height: 1000 }}></View>
+            <NavMenu
+                navOne={() => navigation.navigate('Success', { PropText: 'This page is currently under construction. Check back later!' })}
+                navTwo={() => navigation.navigate('PetsScreen')}
+                navThree={() => navigation.navigate('UserProfile')} />
         </View>
     );
 };

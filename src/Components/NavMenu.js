@@ -1,21 +1,21 @@
 ﻿import React from 'react';
 import { Text, View, Pressable, StyleSheet } from 'react-native';
 
-const YourApp = () => {
+const NavMenu = ({ navOne, navTwo, navThree }) => {
     return (
-        <View style={{ backgroundColor: 'black', height: '100%' }}>
+        <View>
             <View style={styles.navBar}>
-                <Pressable style={styles.navOption1}>
-                    <Text style={styles.navIcon}>🐾</Text>
-                    <Text style={styles.navText}>Sign In</Text>
+                <Pressable style={styles.navOption1} onPress={navThree}>
+                    <Text style={styles.navIcon}>👤</Text>
+                    <Text style={styles.navText}>Profile</Text>
                 </Pressable>
-                <Pressable style={styles.navOption2}>
-                    <Text style={{ fontSize: 50, }}>🔎</Text>
+                <Pressable style={styles.navOption2} onPress={navTwo}>
+                    <Text style={{ fontSize: 55, marginBottom: 10}}>🔎</Text>
                     <Text style={styles.navText}>Search</Text>
                 </Pressable>
-                <Pressable style={styles.navOption1}>
-                    <Text style={styles.navIcon}>🐶</Text>
-                    <Text style={styles.navText}>Profile</Text>
+                <Pressable style={styles.navOption1} onPress={navOne}>
+                    <Text style={styles.navIcon}>🗨️</Text>
+                    <Text style={styles.navText}>Messages</Text>
                 </Pressable>
             </View>
         </View>
@@ -25,10 +25,10 @@ const YourApp = () => {
 const styles = StyleSheet.create({
     navBar: {
         width: '100%',
-        position: 'fixed',
+        position: 'absolute',
         bottom: 0,
         flexDirection: 'row',
-        height: 90,
+        height: 100,
         alignItems: 'flex-end',
     },
     navOption1: {
@@ -44,13 +44,14 @@ const styles = StyleSheet.create({
         flex: 1.3,
         alignItems: 'center',
         backgroundColor: '#66b3ff',
-        borderTopWidth: 1,
-        borderTopColor: '#339aff',
+        borderWidth: 1,
+        borderColor: '#339aff',
         shadowRadius: 4,
         shadowColor: '#339aff',
         height: '100%',
-        borderTopLeftRadius: 50,
-        borderTopRightRadius: 50,
+        borderTopLeftRadius: 70,
+        borderTopRightRadius: 70,
+        height: 117,
         justifyContent: 'center'
     },
     navText: {
@@ -62,4 +63,4 @@ const styles = StyleSheet.create({
     },
 })
 
-export default YourApp;
+export default NavMenu;

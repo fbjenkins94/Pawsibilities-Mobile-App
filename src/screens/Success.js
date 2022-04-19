@@ -3,7 +3,6 @@ import { ScrollView, SafeAreaView, StyleSheet, TextInput, View, Text, Pressable,
 
 const Success = ({ navigation }) => {
     const textDisplay = navigation.getParam('PropText');
-    console.log(navigation.getParam('PropText'));
 
     useEffect(async () => {
         setTimeout(() => {

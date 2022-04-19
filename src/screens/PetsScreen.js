@@ -1,5 +1,7 @@
 import React from 'react';
-import { Text, View, StyleSheet, FlatList, Image, Pressable } from 'react-native';
+import { Text, View, StyleSheet, FlatList, Image, Pressable, ScrollView } from 'react-native';
+import NavMenu from '../Components/NavMenu.js';
+
 
 
 
@@ -26,23 +28,25 @@ const Dog = ({ navigation, priority }) => {
     ];
     DATA = DATA.concat(DATA.concat(DATA));
 
-    const renderItem = ({ item }) => {
+    const renderItem = ({ item, index }) => {
         return (
-            <View>
+            <View style={index == 0 ? { ...styles.petBox, ...{marginLeft: 25} } : styles.petBox}>
                 <Image
                     style={styles.dogImage}
                     source={{
                         uri: item.photo,
                     }}
                 />
-                <Text style={{ paddingLeft: 6, fontWeight: 'bold', fontSize: 18 }}>{item.name}</Text>
-                <Text style={{ paddingLeft: 6, fontSize: 15 }}>{item.sex}, {item.age}</Text>
+                <View style={{width: '100%'}}>
+                    <Text style={{ paddingLeft: 6, fontWeight: 'bold', fontSize: 18 }}>{item.name}</Text>
+                    <Text style={{ paddingLeft: 6, fontSize: 15 }}>{item.sex}, {item.age}</Text>
+                </View>
             </View>
         );
     }
 
     return (
-        <View style={{ paddingTop: 8 }}>
+        <View style={priority == 3 ? { paddingTop: 8, marginBottom: 115 } : { paddingTop: 8 }}>
             <View style={priority == 1 ? styles.myBox1 : (priority == 2 ? styles.myBox2 : styles.myBox3)}>
                 <Text style={priority <= 2 ? styles.myText1 : styles.myText2}>{priority == 1 ? 'Emergency' : (priority == 2 ? 'Caution' : 'Safe')}</Text>
             </View>
@@ -53,7 +57,7 @@ const Dog = ({ navigation, priority }) => {
                 renderItem={(item) => {
                     return (
                         <Pressable
-                            style={styles.petBox}
+                            style={styles.shadow}
                             onPress={() => { navigation.navigate('PetProfile') }}>
                             {renderItem(item)}
                         </Pressable>
@@ -69,13 +73,31 @@ const Dog = ({ navigation, priority }) => {
 
 const PetsScreen = ({ navigation }) => {
     return (
-        <View style={{ paddingBottom: 45, paddingLeft: 15, backgroundColor: '#F5FCFF' }}>
+        <View style={{ backgroundColor: "white", /*'#F5FCFF'*/ flex: 1 }}>
+            <ScrollView>
             <View style={styles.results}>
                 <Text>11 pets near you are in danger of euthanasia</Text>
-            </View>
+                </View>
+
+
+                <View style={styles.buttons}>
+                    <Pressable style={styles.button} onPress={()=>navigation.navigate('SearchScreen')}>
+                        <View><Text style={styles.text}>Filter</Text></View>
+                    </Pressable>
+                    <Pressable style={styles.button}>
+                        <View><Text style={styles.text}>Following</Text></View>
+                    </Pressable>
+                </View>
+
+
             <Dog navigation={navigation} priority={1} />
             <Dog navigation={navigation} priority={2} />
-            <Dog navigation={navigation} priority={3} />
+                <Dog navigation={navigation} priority={3} />
+            </ScrollView>
+            <NavMenu
+                navOne={() => navigation.navigate('Success', { PropText: 'This page is currently under construction. Check back later!' })}
+                navTwo={() => navigation.navigate('PetsScreen')}
+                navThree={() => navigation.navigate('UserProfile')}/>
         </View>
     )
 }
@@ -87,7 +109,8 @@ const styles = StyleSheet.create({
         borderBottomColor: 'red',
         paddingBottom: 15,
         marginBottom: 15,
-        marginTop: 15,
+        marginTop: 25,
+        marginLeft: 15,
     },
 
     dogImage: {
@@ -101,13 +124,14 @@ const styles = StyleSheet.create({
         borderTopLeftRadius: 8,
         height: 50,
         justifyContent: 'center',
-
+        marginLeft: 15,
     },
     myBox2: {
         backgroundColor: '#FFAF7A',
         borderTopLeftRadius: 8,
         height: 50,
         justifyContent: 'center',
+        marginLeft: 15,
 
     },
 
@@ -117,6 +141,8 @@ const styles = StyleSheet.create({
         height: 50,
         justifyContent: 'center',
         borderWidth: 1,
+        marginLeft: 15,
+
     },
 
     myText1: {
@@ -132,21 +158,39 @@ const styles = StyleSheet.create({
     },
 
     petBox: {
-        paddingTop: 0,
         height: 170,
         width: 160,
-        shadowColor: "gray",
-        shadowOffset: {
-            width: 0,
-            height: 2,
-        },
-        shadowOpacity: 1.25,
-        shadowRadius: 3.84,
-        elevation: 5,
         marginRight: 8,
         marginBottom: 10,
-        marginLeft: 10,
-        marginTop: 5,
+        marginTop: 15,
+        marginLeft: 15
+    },
+
+    shadow: {
+        shadowColor: 'gray',
+        shadowOpacity: 5,
+        // background color must be set
+        elevation: 3,
+        borderWidth: 1,
+        borderColor: "white"
+    },
+
+    buttons: {
+        flexDirection: 'row',
+        justifyContent: 'space-evenly',
+        marginVertical: 10
+    },
+    button: {
+        backgroundColor: 'skyblue',
+        width: 120,
+        alignItems: 'center',
+        justifyContent: 'center',
+        height: 60,
+    },
+    text: {
+        color: 'white',
+        fontSize: 18,
+        fontWeight: 'bold',
     },
 })
 export default PetsScreen;

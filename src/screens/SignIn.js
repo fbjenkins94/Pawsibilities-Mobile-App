@@ -65,9 +65,9 @@ const SignIn = ({ navigation }) => {
                         if (!firstNameError || !lastNameError || !emailError || !passwordError) {
 
                             //MAKE PROFILE
-                            const response = await pawsAPI.post('/user/signup', { email, password });
-                            await AsyncStorage.setItem('token', response.data.token);
-                            navigation.navigate('SearchScreen');
+                            /*const response = await pawsAPI.post('/user/signup', { email, password });
+                            await AsyncStorage.setItem('token', response.data.token);*/
+                            navigation.navigate('PetsScreen');
                         }
                     } catch (e) { }
                 }

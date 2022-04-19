@@ -14,6 +14,7 @@ const SignUpScreen = ({ navigation }) => {
 
     return (
         <View style={{ height: '100%', backgroundColor: 'white', }}>
+            <ScrollView>
             <SafeAreaView>
                 <View style={styles.signInContainer}>
                     <Pressable onPress={() => { navigation.navigate('SignIn') }}>
@@ -70,6 +71,8 @@ const SignUpScreen = ({ navigation }) => {
                     <View style={styles.errorTextBoxes}><Text style={{ fontSize: 12, color: 'red' }}></Text></View>
                 </View>
             </SafeAreaView>
+                <View style={{ height: 78 }}></View>
+            </ScrollView>
 
             <Pressable
                 style={styles.nextButton}
@@ -85,12 +88,14 @@ const SignUpScreen = ({ navigation }) => {
                             !/\W/.test(password) ?
                             'Must contain at least 8 characters and one uppercase, one lowercase, one number, and one special character' :
                             '');
-                        if (!firstNameError || !lastNameError || !emailError || !passwordError) {
-
+                        console.log('PEPEPEPEPEP');
+                        if (!firstNameError && !lastNameError && !emailError && !passwordError) {
+                            navigation.navigate('PetsScreen');
                             //MAKE PROFILE
                             const response = await pawsAPI.post('/user/signup', { email, password });
                             await AsyncStorage.setItem('token', response.data.token);
-                            navigation.navigate('SearchScreen');
+                            console.log(response.data.token);
+                            navigation.navigate('PetsScreen');
                        }
                     } catch (e) {}
                 }

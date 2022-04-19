@@ -1,5 +1,6 @@
 import React from 'react';
 import { Text, View, StyleSheet, FlatList, Image, Pressable } from 'react-native';
+import NavMenu from '../Components/NavMenu.js';
 
 const YourApp = () => {
     return (
@@ -39,6 +40,12 @@ const YourApp = () => {
                     <Text></Text>
                 </View>
             </View>
+
+            <View style={{ height: 1000 }}></View>
+            <NavMenu
+                navOne={() => navigation.navigate('Success', { PropText: 'This page is currently under construction. Check back later!' })}
+                navTwo={() => navigation.navigate('PetsScreen')}
+                navThree={() => navigation.navigate('UserProfile')} />
         </View>
     )
 }
