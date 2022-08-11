@@ -14,6 +14,7 @@ import Success from "./src/screens/Success";
 import DeleteProfile from "./src/screens/DeleteProfile"
 import Question from "./src/screens/Question"
 
+
 const navigator = createStackNavigator(
     {
         //Loading: Loading,
@@ -34,7 +35,7 @@ const navigator = createStackNavigator(
     {
         initialRouteName: "HomeScreen",
         defaultNavigationOptions: {
-            title: "Welcome",
+            title: "Home Screen",
         },
     }
 );

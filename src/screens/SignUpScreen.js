@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { ScrollView, SafeAreaView, StyleSheet, TextInput, View, Text, Pressable } from "react-native";
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import pawsAPI from '../API/PawsBack.js';
 
 const SignUpScreen = ({ navigation }) => {
@@ -88,16 +89,14 @@ const SignUpScreen = ({ navigation }) => {
                             !/\W/.test(password) ?
                             'Must contain at least 8 characters and one uppercase, one lowercase, one number, and one special character' :
                             '');
-                        console.log('PEPEPEPEPEP');
                         if (!firstNameError && !lastNameError && !emailError && !passwordError) {
-                            navigation.navigate('PetsScreen');
                             //MAKE PROFILE
-                            const response = await pawsAPI.post('/user/signup', { email, password });
+                            const response = await pawsAPI.post('user/signup', { firstName, lastName, email, password });
                             await AsyncStorage.setItem('token', response.data.token);
                             console.log(response.data.token);
                             navigation.navigate('PetsScreen');
                        }
-                    } catch (e) {}
+                    } catch (e) {console.log(e.message)}
                 }
             }>
                 <Text style={{ color: 'white', fontSize: 18, }}>SIGN UP</Text>

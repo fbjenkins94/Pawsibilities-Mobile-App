@@ -1,6 +1,17 @@
 import React from 'react';
-import { View, Text, StyleSheet, Pressable } from 'react-native';
+import { View, Text, Pressable } from 'react-native';
+import { style_HomeScreen_Button as styles } from '../StyleSheets/Styles.js'
 
+/*
+ * This component renders a button on the Home screen that navigates to different sides of the app
+ * depending on whether we are users intending to adopt, or shelters intending to list pets.
+ * 
+ * @param {Boolean} isShelter - true if we want to render the button for shelters, false if we want
+ *      to render the button for pet adoptions
+ * @param {String} nextScreen  - this text names the next screen we want to navigate to when the 
+ *      button is pressed
+ *
+ */
 
 const HomeButtons = ({ isShelter, nextScreen }) => {
     return (
@@ -13,37 +24,5 @@ const HomeButtons = ({ isShelter, nextScreen }) => {
         </Pressable>
     )
 }
-
-const styles = StyleSheet.create({
-    adoptButton: {
-        backgroundColor: '#3633FF',
-        color: 'white',
-        padding: 15,
-        borderRadius: 20,
-        marginBottom: 20,
-        width: '75%',
-        alignItems: 'center',
-    },
-
-    adoptText: {
-        color: "white",
-        fontSize: 20,
-        fontWeight: "bold",
-    },
-
-    shelterButton: {
-        borderRadius: 20,
-        padding: 15,
-        width: '75%',
-        alignItems: 'center',
-    },
-
-    shelterText: {
-        fontSize: 20,
-        color: '#3633FF',
-        fontWeight: "bold",
-    },
-
- })
 
 export default HomeButtons;

@@ -1,6 +1,8 @@
 import React from "react";
-import { ScrollView, SafeAreaView, StyleSheet, TextInput, View, Text, Pressable } from "react-native";
+import { SafeAreaView, TextInput, View, Text, Pressable } from "react-native";
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import pawsAPI from '../API/PawsBack.js';
+import { style_SignIn as styles } from '../StyleSheets/Styles.js';
 
 const SignIn = ({ navigation }) => {
     const [email, onEmail] = React.useState("");
@@ -56,127 +58,26 @@ const SignIn = ({ navigation }) => {
                 onPress={async () => {
                     try {
                         onError(!/.+@.+\..+/.test(email) ||
-                        password.length < 8 ||
+                            password.length < 8 ||
                             !/[a-z]/.test(password) ||
                             !/[A-Z]/.test(password) ||
                             !/\d/.test(password) ||
                             !/\W/.test(password) ?
                             'Invalid Credentials' : '');
-                        if (!firstNameError || !lastNameError || !emailError || !passwordError) {
-
+                        if (!error) {
+                            console.log("HERE");
                             //MAKE PROFILE
-                            /*const response = await pawsAPI.post('/user/signup', { email, password });
-                            await AsyncStorage.setItem('token', response.data.token);*/
+                            const response = await pawsAPI.post('user/signin', { email, password });
+                            await AsyncStorage.setItem('token', response.data.token);
                             navigation.navigate('PetsScreen');
                         }
-                    } catch (e) { }
+                    } catch (e) { console.log(e.message) }
                 }
-                }>
+            }>
                 <Text style={{ color: 'white', fontSize: 18, }}>SIGN IN</Text>
             </Pressable>
         </View>
     );
 };
-
-const styles = StyleSheet.create({
-    line: {
-        width: 100,
-        borderBottomWidth: 1,
-        borderColor: '#219DFF',
-        marginBottom: 7,
-    },
-
-    emailContainer: {
-        alignItems: 'flex-end',
-        flexDirection: 'row',
-        height: 50,
-        justifyContent: 'center',
-        width: '100%',
-    },
-
-    signUpContainer: {
-        alignItems: 'center',
-        justifyContent: 'center',
-        width: '100%',
-        paddingTop: 55,
-    },
-
-    emailTextBox: {
-        borderColor: '#219DFF',
-        height: 45,
-        marginLeft: 5,
-        width: '92%',
-        borderWidth: 1,
-        borderRadius: 6,
-        padding: 10,
-    },
-
-    emailTextBox2: {
-        borderColor: 'red',
-        height: 45,
-        marginLeft: 5,
-        width: '92%',
-        borderWidth: 1,
-        borderRadius: 6,
-        padding: 10,
-    },
-
-    textBoxes: {
-        borderColor: '#219DFF',
-        height: 40,
-        marginLeft: 5,
-        width: '45%',
-        borderWidth: 1,
-        borderRadius: 6,
-        padding: 10,
-    },
-
-    namesContainer: {
-        alignItems: 'center',
-        flexDirection: 'row',
-        height: 60,
-        justifyContent: 'center',
-        width: '100%',
-    },
-
-    nextButton: {
-        bottom: 0,
-        width: '100%',
-        height: 50,
-        backgroundColor: '#219DFF',
-        justifyContent: 'center',
-        alignItems: 'center',
-        color: 'white',
-        position: 'absolute',
-        bottom: 0,
-        fontSize: 18,
-    },
-
-    errorNamesContainer: {
-        marginTop: 3,
-        paddingLeft: 7,
-        alignItems: 'center',
-        flexDirection: 'row',
-        height: 20,
-        justifyContent: 'center',
-        width: '100%',
-    },
-    errorNamesContainer2: {
-        marginTop: 3,
-        paddingLeft: 7,
-        alignItems: 'center',
-        flexDirection: 'row',
-        height: 30,
-        justifyContent: 'center',
-        width: '100%',
-    },
-
-
-    errorTextBoxes: {
-        marginLeft: 7,
-        width: '45%',
-        paddingTop: 5,
-    },
-});
 
 export default SignIn;

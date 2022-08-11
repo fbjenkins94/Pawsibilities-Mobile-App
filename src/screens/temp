@@ -1,5 +1,0 @@
-                    renderItem={(item) => {
-                        return (
-                            <Pressable onPress={ navigation.navigate('HomeScreen')}>{renderItem(item)}</Pressable>
-                        );
-                    }}
