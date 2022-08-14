@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, Text, Pressable } from 'react-native';
-import { style_HomeScreen_Button as styles } from '../StyleSheets/Styles.js'
+import { style_Divider as styles } from '../StyleSheets/Styles.js'
 
 /*
  * This component renders a button on the Home screen that navigates to different sides of the app
@@ -13,16 +13,20 @@ import { style_HomeScreen_Button as styles } from '../StyleSheets/Styles.js'
  *
  */
 
-const HomeButtons = ({ isShelter, nextScreen }) => {
+/*
+ * 1) Swap isShelter for a styling object
+ * 2) add optional callback function
+ * 3) add button text argument
+ */
+
+const Divider = ({ dividerText }) => {
     return (
-        <Pressable style={isShelter ? styles.shelterButton : styles.adoptButton} onPress={ nextScreen }>
-            <View>
-                <Text style={isShelter ? styles.shelterText : styles.adoptText}>
-                    {isShelter ? 'Paws for Shelters' : 'Adopt a Pet' }
-                </Text>
-            </View>
-        </Pressable>
+        <View style={styles.dividerContainer}>
+            <View style={styles.line}></View>
+            <Text style={styles.styleDividerText}> {dividerText} </Text>
+            <View style={styles.line}></View>
+        </View>
     )
 }
 
-export default HomeButtons;
+export default Divider;

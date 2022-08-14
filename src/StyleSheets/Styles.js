@@ -1,6 +1,27 @@
 import { StyleSheet } from 'react-native';
 
-const style_HomeScreen = StyleSheet.create({
+export const style_Divider = StyleSheet.create({
+    dividerContainer: {
+        flexDirection: 'row',
+        justifyContent: 'center',
+        marginBottom: 20,
+        marginTop: 35,
+    },
+
+    line: {
+        borderBottomWidth: 1,
+        borderColor: '#219DFF',
+        marginBottom: 7,
+        width: 100,
+    },
+
+    styleDividerText: {
+        fontSize: 18,
+        marginHorizontal: 8,
+    },
+});
+
+export const style_HomeScreen = StyleSheet.create({
     appScreen: {
         alignItems: 'center',
         backgroundColor: 'white',
@@ -27,7 +48,7 @@ const style_HomeScreen = StyleSheet.create({
     },
 });
 
-const style_HomeScreen_Button = StyleSheet.create({
+export const style_PawsButtons = StyleSheet.create({
     adoptButton: {
         alignItems: 'center',
         backgroundColor: '#3633FF',
@@ -56,9 +77,21 @@ const style_HomeScreen_Button = StyleSheet.create({
         fontSize: 20,
         fontWeight: "bold",
     },
+
+    signUpButton: {
+        alignItems: 'center',
+        justifyContent: 'center',
+        paddingTop: 55,
+        width: '100%',
+    },
+
+    signUpText: {
+        color: '#219DFF',
+        fontSize: 16,
+    },
 });
 
-const style_SignIn = StyleSheet.create({
+export const style_SignIn = StyleSheet.create({
     emailContainer: {
         alignItems: 'flex-end',
         flexDirection: 'row',
@@ -113,13 +146,6 @@ const style_SignIn = StyleSheet.create({
         width: '45%',
     },
 
-    line: {
-        borderBottomWidth: 1,
-        borderColor: '#219DFF',
-        marginBottom: 7,
-        width: 100,
-    },
-
     namesContainer: {
         alignItems: 'center',
         flexDirection: 'row',
@@ -137,13 +163,6 @@ const style_SignIn = StyleSheet.create({
         height: 50,
         justifyContent: 'center',
         position: 'absolute',
-        width: '100%',
-    },
-
-    signUpContainer: {
-        alignItems: 'center',
-        justifyContent: 'center',
-        paddingTop: 55,
         width: '100%',
     },
 

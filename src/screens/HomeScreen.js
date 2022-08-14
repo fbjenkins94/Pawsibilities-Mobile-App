@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { Text, View, StyleSheet } from 'react-native';
-import HomeButtons from '../Components/HomeScreen_Buttons.js';
+import PawsButtons from '../Components/PawsButtons.js';
 import { style_HomeScreen as styles } from '../StyleSheets/Styles.js';
 
 /*
@@ -31,8 +31,20 @@ const HomeScreen = ({ navigation }) => {
     return (
         <View style={styles.appScreen}>
             <Text style={styles.pawsLogo}>Pawsibilities</Text>
-            {render ? <HomeButtons isShelter={false} nextScreen={() => navigation.navigate("SignIn") }/> : null}
-            {render ? <HomeButtons isShelter={true}/> : null}
+            {render ?
+                <PawsButtons
+                    buttonStyle={'adoptButton'}
+                    textStyle={'adoptText'}
+                    buttonText={'Adopt a Pet'}
+                    clickFunction={() => navigation.navigate("SignIn_Adoptions")} /> :
+                null}
+            {render ?
+                <PawsButtons
+                    buttonStyle={'shelterButton'}
+                    textStyle={'shelterText'}
+                    buttonText={'Paws for Shelters'}
+                    clickFunction={() => navigation.navigate("SignIn_Shelters")} /> :
+                null}
         </View>
     );
 }

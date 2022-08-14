@@ -3,7 +3,7 @@ import { ScrollView, SafeAreaView, StyleSheet, TextInput, View, Text, Pressable 
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import pawsAPI from '../API/PawsBack.js';
 
-const SignUpScreen = ({ navigation }) => {
+const SignUp_Adoptions = ({ navigation }) => {
     const [email, onEmail] = React.useState("");
     const [emailError, onEmailError] = React.useState("");
     const [firstName, onFirstName] = React.useState("");
