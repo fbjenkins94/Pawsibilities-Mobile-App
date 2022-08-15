@@ -92,34 +92,6 @@ export const style_PawsButtons = StyleSheet.create({
 });
 
 export const style_SignIn = StyleSheet.create({
-    emailContainer: {
-        alignItems: 'flex-end',
-        flexDirection: 'row',
-        height: 50,
-        justifyContent: 'center',
-        width: '100%',
-    },
-
-    emailTextBox: {
-        borderColor: '#219DFF',
-        borderRadius: 6,
-        borderWidth: 1,
-        height: 45,
-        marginLeft: 5,
-        padding: 10,
-        width: '92%',
-    },
-
-    emailTextBox2: {
-        borderColor: 'red',
-        borderRadius: 6,
-        borderWidth: 1,
-        height: 45,
-        marginLeft: 5,
-        padding: 10,
-        width: '92%',
-    },
-
     errorNamesContainer: {
         alignItems: 'center',
         flexDirection: 'row',
@@ -174,5 +146,35 @@ export const style_SignIn = StyleSheet.create({
         marginLeft: 5,
         padding: 10,
         width: '45%',
+    },
+});
+
+export const style_UserInput = StyleSheet.create({
+    errorUserInputContainer: {
+        borderColor: 'red',
+        borderRadius: 6,
+        borderWidth: 1,
+        height: 45,
+        marginLeft: 5,
+        padding: 10,
+        width: '92%',
+    },
+
+    userInputContainer: {
+        alignItems: 'flex-end',
+        flexDirection: 'row',
+        height: 50,
+        justifyContent: 'center',
+        width: '100%',
+    },
+
+    inputTextBox: {
+        borderColor: '#219DFF',
+        borderRadius: 6,
+        borderWidth: 1,
+        height: 45,
+        marginLeft: 5,
+        padding: 10,
+        width: '92%',
     },
 });

@@ -6,8 +6,6 @@ import { Divider } from '../Components/Divider.js';
 import { style_SignIn as styles } from '../StyleSheets/Styles.js';
 
 /*
- * 1) turn first button into a HomeScreen_Button component
- * 2) Turn -Sign in- divider into an imported component
  * 3) Turn text inputs into imported components
  * 4) (Optional) turn error boxes into an imported componenet
  * 5) Turn submit button into an imported componenet
@@ -31,40 +29,28 @@ const SignIn_Adoptions = ({ navigation }) => {
                     clickFunction={() => navigation.navigate('SignUp_Adoptions')}} />
 
                 <Divider
-                    dividerText={ 'Sign In' }/>
+                    dividerText={'Sign In'} />
 
-                <View style={styles.emailContainer}>
-                    <TextInput
-                        style={!error ? styles.emailTextBox : styles.emailTextBox2}
-                        onChangeText={onEmail}
-                        onSubmitEditing={() => isValidInput()}
-                        value={email}
-                        placeholder="Your Email"
-                    />
-                </View>
-
+                <UserInput
+                    inputStyle={!error ? 'userInputContainer' : 'errorUserInputContainer'}
+                    changeFunction={onEmail}
+                    submitFunction={isValidInput}
+                    inputValue={email}
+                    inputPlaceholder={"Your Email"} />
 
                 <View style={styles.errorNamesContainer}>
                     <View style={styles.errorTextBoxes}><Text style={{ fontSize: 12, color: 'red' }}></Text></View>
                     <View style={styles.errorTextBoxes}><Text style={{ fontSize: 12, color: 'red' }}></Text></View>
                 </View>
 
-
-                <View style={styles.emailContainer}>
-                    <TextInput
-                        style={!error ? styles.emailTextBox : styles.emailTextBox2}
-                        onChangeText={onPassword}
-                        onSubmitEditing={() => isValidInput()}
-                        value={password}
-                        placeholder="Your Password"
-                    />
-                    <Text style={{ color: 'red' }}></Text>
-                </View>
+                <UserInput
+                    inputStyle={!error ? 'userInputContainer' : 'errorUserInputContainer'}
+                    changeFunction={onPassword}
+                    submitFunction={isValidInput}
+                    inputValue={password}
+                    inputPlaceholder={"Your Password"} />
 
 
-                <View style={styles.errorNamesContainer2}>
-                    <View style={styles.errorTextBoxes}><Text style={{ fontSize: 18, color: 'red' }}>{error}</Text></View>
-                </View>
 
 
             </SafeAreaView>
