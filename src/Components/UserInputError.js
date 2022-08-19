@@ -3,15 +3,15 @@ import { View, Text } from 'react-native';
 import { style_UserInput as styles } from '../StyleSheets/Styles.js';
 
 
-const UserInputError = ({ inputStyle, changeFunction, submitFunction, inputValue, inputPlaceholder }) => {
+const UserInputError = ({ error, errorTwo }) => {
     return (
-        <View style={styles.errorNamesContainer2}>
-            <View style={styles.errorTextBoxes}>
-                <Text style={{ fontSize: 18, color: 'red' }}>{error}</Text>
+        <View style={errorTwo ? styles.errorNamesContainer : styles.errorNamesContainer2}>
+            <View style={errorTwo ? styles.errorTextBoxes : {}}>
+                <Text style={{ fontSize: 12, color: 'red' }}>{error}</Text>
             </View>
-            {!singleError ?
+            {errorTwo ?
                 <View style={styles.errorTextBoxes}>
-                    <Text style={{ fontSize: 18, color: 'red' }}>{error}</Text>
+                    <Text style={{ fontSize: 12, color: 'red' }}>{errorTwo}</Text>
                 </View> :
                 null
             }

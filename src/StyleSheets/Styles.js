@@ -1,5 +1,10 @@
 import { StyleSheet } from 'react-native';
 
+const screenStyle = {
+    backgroundColor: 'white',
+    height: '100%',
+};
+
 export const style_Divider = StyleSheet.create({
     dividerContainer: {
         flexDirection: 'row',
@@ -11,7 +16,7 @@ export const style_Divider = StyleSheet.create({
     line: {
         borderBottomWidth: 1,
         borderColor: '#219DFF',
-        marginBottom: 7,
+        marginBottom: 12,
         width: 100,
     },
 
@@ -21,7 +26,7 @@ export const style_Divider = StyleSheet.create({
     },
 });
 
-export const style_HomeScreen = StyleSheet.create({
+export const style_Home = StyleSheet.create({
     appScreen: {
         alignItems: 'center',
         backgroundColor: 'white',
@@ -65,6 +70,23 @@ export const style_PawsButtons = StyleSheet.create({
         fontWeight: "bold",
     },
 
+    nextButton: {
+        alignItems: 'center',
+        backgroundColor: '#219DFF',
+        bottom: 0,
+        color: 'white',
+        fontSize: 18,
+        height: 50,
+        justifyContent: 'center',
+        position: 'absolute',
+        width: '100%',
+    },
+
+    nextText: {
+        color: 'white',
+        fontSize: 18,
+    },
+
     shelterButton: {
         alignItems: 'center',
         borderRadius: 20,
@@ -93,19 +115,9 @@ export const style_PawsButtons = StyleSheet.create({
 
 export const style_SignIn = StyleSheet.create({
     errorNamesContainer: {
-        alignItems: 'center',
+        alignItems: 'flex-end',
         flexDirection: 'row',
         height: 20,
-        justifyContent: 'center',
-        marginTop: 3,
-        paddingLeft: 7,
-        width: '100%',
-    },
-
-    errorNamesContainer2: {
-        alignItems: 'center',
-        flexDirection: 'row',
-        height: 30,
         justifyContent: 'center',
         marginTop: 3,
         paddingLeft: 7,
@@ -116,6 +128,9 @@ export const style_SignIn = StyleSheet.create({
         marginLeft: 7,
         paddingTop: 5,
         width: '45%',
+        backgroundColor: 'red',
+        borderWidth: 10,
+        borderColor: 'black',
     },
 
     namesContainer: {
@@ -126,17 +141,7 @@ export const style_SignIn = StyleSheet.create({
         width: '100%',
     },
 
-    nextButton: {
-        alignItems: 'center',
-        backgroundColor: '#219DFF',
-        bottom: 0,
-        color: 'white',
-        fontSize: 18,
-        height: 50,
-        justifyContent: 'center',
-        position: 'absolute',
-        width: '100%',
-    },
+    signInContainer: screenStyle,
 
     textBoxes: {
         borderColor: '#219DFF',
@@ -149,7 +154,41 @@ export const style_SignIn = StyleSheet.create({
     },
 });
 
+export const style_SignUp = StyleSheet.create({
+    namesContainer: {
+        alignItems: 'flex-end',
+        flexDirection: 'row',
+        height: 60,
+        justifyContent: 'center',
+        width: '100%',
+    },
+
+    signUpContainer: screenStyle,
+});
+
 export const style_UserInput = StyleSheet.create({
+    errorNamesContainer2: {
+        height: 25,
+        justifyContent: 'center',
+        paddingLeft: 25,
+        width: '100%',
+    },
+
+    errorNamesContainer: {
+        marginTop: 3,
+        paddingLeft: 7,
+        alignItems: 'center',
+        flexDirection: 'row',
+        height: 20,
+        justifyContent: 'center',
+        width: '100%',
+    },
+
+    errorTextBoxes: {
+        marginLeft: 7,
+        width: '45.5%',
+    },
+
     errorUserInputContainer: {
         borderColor: 'red',
         borderRadius: 6,
@@ -157,7 +196,45 @@ export const style_UserInput = StyleSheet.create({
         height: 45,
         marginLeft: 5,
         padding: 10,
-        width: '92%',
+        width: '90%',
+    },
+
+    smallContainerLeft: {
+        alignItems: 'flex-end',
+        flexDirection: 'row',
+        height: 60,
+        justifyContent: 'flex-end',
+        flex: 1,
+        paddingRight: 5,
+    },
+
+    smallContainerRight: {
+        alignItems: 'flex-end',
+        flexDirection: 'row',
+        height: 60,
+        width: '50%',
+        flex: 1,
+        paddingLeft: 5,
+    },
+
+    textBoxes: {
+        borderColor: '#219DFF',
+        height: 45,
+        width: '89%',
+        borderWidth: 1,
+        borderRadius: 6,
+        padding: 10,
+        borderWidth: 1,
+    },
+
+    textBoxes2: {
+        borderColor: 'red',
+        height: 45,
+        width: '89%',
+        borderWidth: 1,
+        borderRadius: 6,
+        padding: 10,
+        borderWidth: 1,
     },
 
     userInputContainer: {
@@ -175,6 +252,6 @@ export const style_UserInput = StyleSheet.create({
         height: 45,
         marginLeft: 5,
         padding: 10,
-        width: '92%',
+        width: '90%',
     },
 });

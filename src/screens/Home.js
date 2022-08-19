@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { Text, View, StyleSheet } from 'react-native';
 import PawsButtons from '../Components/PawsButtons.js';
-import { style_HomeScreen as styles } from '../StyleSheets/Styles.js';
+import { style_Home as styles } from '../StyleSheets/Styles.js';
 
 /*
  * This is the first screen of the app. It features the app's title and two buttons: one button 
@@ -14,7 +14,7 @@ import { style_HomeScreen as styles } from '../StyleSheets/Styles.js';
  *      in App.js; it allows us to navigate the user between files/screens
  */
 
-const HomeScreen = ({ navigation }) => {
+const Home = ({ navigation }) => {
     const [render, setRender] = useState(false); // render is used to render the screen after 700 ms
 
     /* We execte on the first render and navigate to the main screen if we are logged in, as 
@@ -22,7 +22,7 @@ const HomeScreen = ({ navigation }) => {
     * 700 ms. */
     useEffect(async () => {
         try {
-            const token = await AsyncStorage.getItem('token');
+            const token = ''; /*await AsyncStorage.getItem('token');*/
             if (token) navigation.navigate('PetsScreen');
         } catch (e) {}
         setTimeout(() => { setRender(true); }, 700);
@@ -36,17 +36,17 @@ const HomeScreen = ({ navigation }) => {
                     buttonStyle={'adoptButton'}
                     textStyle={'adoptText'}
                     buttonText={'Adopt a Pet'}
-                    clickFunction={() => navigation.navigate("SignIn_Adoptions")} /> :
+                    clickFunction={() => navigation.navigate("SignIn", { shelterSignIn: false })} /> :
                 null}
             {render ?
                 <PawsButtons
                     buttonStyle={'shelterButton'}
                     textStyle={'shelterText'}
                     buttonText={'Paws for Shelters'}
-                    clickFunction={() => navigation.navigate("SignIn_Shelters")} /> :
+                    clickFunction={() => { navigation.navigate("SignIn", { shelterSignIn: true }) }} /> :
                 null}
         </View>
     );
 }
 
-export default HomeScreen;
+export default Home;

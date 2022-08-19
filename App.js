@@ -1,12 +1,13 @@
 import { createAppContainer } from "react-navigation";
 import { createStackNavigator } from "react-navigation-stack";
-import HomeScreen from "./src/screens/HomeScreen";
-import SignUp_Adoptions from "./src/screens/SignUp_Adoptions";
+import Home from "./src/screens/Home";
+import { SignUp_Adoptions } from "./src/screens/SignUp";
+import { SignUp_Shelters } from "./src/screens/SignUp";
 import PasswordScreen from "./src/screens/PasswordScreen";
 import SearchScreen from "./src/screens/SearchScreen";
 import PetsScreen from "./src/screens/PetsScreen";
 import PetProfile from "./src/screens/PetProfile";
-import SignIn_Adoptions from "./src/screens/SignIn_Adoptions";
+import SignIn from "./src/screens/SignIn";
 import UserProfile from "./src/screens/UserProfile";
 import EditProfile from "./src/screens/EditProfile";
 import ChangePassword from "./src/screens/ChangePassword";
@@ -19,9 +20,10 @@ const navigator = createStackNavigator(
     {
         //Loading: Loading,
         UserProfile: UserProfile,
-        SignIn_Adoptions: SignIn_Adoptions,
-        HomeScreen: HomeScreen,
+        SignIn: SignIn,
+        Home: Home,
         SignUp_Adoptions: SignUp_Adoptions,
+        SignUp_Shelters: SignUp_Shelters,
         PasswordScreen: PasswordScreen,
         SearchScreen: SearchScreen,
         PetsScreen: PetsScreen,
@@ -33,7 +35,7 @@ const navigator = createStackNavigator(
         Question: Question,
     },
     {
-        initialRouteName: "HomeScreen",
+        initialRouteName: "Home",
         defaultNavigationOptions: {
             title: "Home Screen",
         },
