@@ -1,9 +1,11 @@
-import React, { useEffect } from "react";
-import { ScrollView, SafeAreaView, StyleSheet, TextInput, View, Text, Pressable, Image } from "react-native";
+import React from "react";
+import { StyleSheet, TextInput, View, Text, Pressable, Image } from "react-native";
 import pawsAPI from '../API/PawsBack.js';
-import NavMenu from '../Components/NavMenu.js';
+import { NavMenu } from '../Components/NavMenu.js';
+import { ProfileBanner } from '../Components/ProfileBanner.js';
+import { UserInput } from '../Components/UserInput.js';
 
-const EditProfile = ({ navigation }) => {
+export const EditProfile = ({ navigation }) => {
     const [email, onEmail] = React.useState("forestbreeze94@gmail.com");
     const [emailError, onEmailError] = React.useState("");
     const [firstName, onFirstName] = React.useState("Forest");
@@ -13,56 +15,49 @@ const EditProfile = ({ navigation }) => {
 
     return (
         <View style={{ height: '100%', backgroundColor: 'white', }}>
-            <SafeAreaView>
-                <View style={styles.userInfo}>
-                    <View style={styles.pictureContainer}>
-                        <Image
-                            style={styles.userImage}
-                            source={{
-                                uri: 'https://kb.rspca.org.au/wp-content/uploads/2018/11/golder-retriever-puppy.jpeg',
-                            }}
-                        />
-                    </View>
-                </View>
-                <View style={styles.errorNamesContainer}>
-                    <View style={styles.errorTextBoxes}><Text style={{ fontSize: 14, color: 'lightgray' }}>First Name</Text></View>
-                    <View style={styles.errorTextBoxes}><Text style={{ fontSize: 14, color: 'lightgray' }}>Last Name</Text></View>
-                </View>
-                <View style={styles.namesContainer}>
-                    <TextInput
-                        style={!firstNameError ? styles.textBoxes : styles.textBoxes2}
-                        onChangeText={onFirstName}
-                        value={firstName}
-                        placeholder={firstNameError ? 'Enter First Name' : ''}
-                        placeholderTextColor='red'
-                    />
-                    <TextInput
-                        style={!lastNameError ? styles.textBoxes : styles.textBoxes2}
-                        onChangeText={onLastName}
-                        value={lastName}
-                        placeholder={lastNameError ? 'Enter Last Name' : ''}
-                        placeholderTextColor='red'
-                    />
-                </View>
+            <ProfileBanner
+                image={'https://kb.rspca.org.au/wp-content/uploads/2018/11/golder-retriever-puppy.jpeg'}
+                edit={true} />
+            <View style={styles.errorNamesContainer}>
+                <View style={styles.errorTextBoxes}><Text style={{ fontSize: 14, color: 'lightgray' }}>First Name</Text></View>
+                <View style={styles.errorTextBoxes}><Text style={{ fontSize: 14, color: 'lightgray' }}>Last Name</Text></View>
+            </View>
 
-                
-                <View style={styles.errorNamesContainer}>
-                    <View style={styles.errorTextBoxes}><Text style={{ fontSize: 14, color: 'lightgray' }}>Email</Text></View>
-                    <View style={styles.errorTextBoxes}><Text style={{ fontSize: 12, color: 'red' }}></Text></View>
-                </View>
-                <View style={styles.emailContainer}>
-                    <TextInput
-                        style={!emailError ? styles.emailTextBox : styles.emailTextBox2}
-                        onChangeText={onEmail}
-                        value={email}
-                        placeholder="Your Email"
-                    />
-                </View>
-                <View style={styles.errorNamesContainer}>
-                    <View style={styles.errorTextBoxes}><Text style={{ fontSize: 12, color: 'red' }}>{emailError}</Text></View>
-                    <View style={styles.errorTextBoxes}><Text style={{ fontSize: 12, color: 'red' }}></Text></View>
-                </View>
-            </SafeAreaView>
+            <View style={styles.namesContainer}>
+                <UserInput
+                    containerStyle={'smallContainerLeft'}
+                    inputStyle={!firstNameError ? 'textBoxes' : 'textBoxes2'}
+                    changeFunction={onFirstName}
+                    inputValue={firstName}
+                    inputPlaceholder={"First Name"} />
+                <UserInput
+                    containerStyle={'smallContainerRight'}
+                    inputStyle={!lastNameError ? 'textBoxes' : 'textBoxes2'}
+                    changeFunction={onLastName}
+                    inputValue={lastName}
+                    inputPlaceholder={"Last Name"} />
+            </View>
+
+
+
+
+            <View style={styles.errorNamesContainer}>
+                <View style={styles.errorTextBoxes}><Text style={{ fontSize: 14, color: 'lightgray' }}>Email</Text></View>
+                <View style={styles.errorTextBoxes}><Text style={{ fontSize: 12, color: 'red' }}></Text></View>
+            </View>
+
+
+            <UserInput
+                containerStyle={'userInputContainer'}
+                inputStyle={!emailError ? 'inputTextBox' : 'errorUserInputContainer'}
+                changeFunction={onEmail}
+                inputValue={email}
+                inputPlaceholder={"Your Email"} />
+
+            <View style={styles.errorNamesContainer}>
+                <View style={styles.errorTextBoxes}><Text style={{ fontSize: 12, color: 'red' }}>{emailError}</Text></View>
+                <View style={styles.errorTextBoxes}><Text style={{ fontSize: 12, color: 'red' }}></Text></View>
+            </View>
 
             <Pressable
                 style={styles.nextButton}
@@ -160,7 +155,7 @@ const styles = StyleSheet.create({
     namesContainer: {
         alignItems: 'flex-end',
         flexDirection: 'row',
-        height: 60,
+        height: 20,
         justifyContent: 'center',
         width: '100%',
     },
@@ -239,12 +234,7 @@ const styles = StyleSheet.create({
         marginBottom: 20,
     },
 
-    userInfo: {
-        width: '100%',
-        height: 170,
-        padding: 20,
-        paddingTop: 10,
-    },
+
 
     userImage: {
         borderRadius: 70,
@@ -258,5 +248,3 @@ const styles = StyleSheet.create({
         color: 'white',
     },
 });
-
-export default EditProfile;

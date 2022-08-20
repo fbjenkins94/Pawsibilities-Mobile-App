@@ -1,6 +1,6 @@
 ﻿import React, { useState } from 'react';
 import { Text, View, StyleSheet, Pressable, ScrollView } from 'react-native';
-import NavMenu from '../Components/NavMenu.js';
+import { NavMenu } from '../Components/NavMenu.js';
 
 
 const PetButton = ({ petEmoji, petName }) => {
@@ -37,7 +37,7 @@ const ArrowButton = ({ navigation }) => {
     )
 }
 
-const SearchScreen = ({navigation}) => {
+export const SearchScreen = ({navigation}) => {
     return (
         <View style={styles.PetScreen}>
             <ScrollView>
@@ -117,5 +117,3 @@ const styles = StyleSheet.create({
         fontSize: 22
     }
 })
-
-export default SearchScreen;

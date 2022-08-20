@@ -1,9 +1,9 @@
 import React from 'react';
-import { View, Text, Pressable } from 'react-native';
+import { View, Text } from 'react-native';
 import { style_Divider as styles } from '../StyleSheets/Styles.js';
 
 
-const Divider = ({ dividerText }) => {
+export const Divider = ({ dividerText }) => {
     return (
         <View style={styles.dividerContainer}>
             <View style={styles.line}></View>
@@ -12,5 +12,3 @@ const Divider = ({ dividerText }) => {
         </View>
     )
 }
-
-export default Divider;

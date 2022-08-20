@@ -19,7 +19,7 @@ import { style_PawsButtons as styles } from '../StyleSheets/Styles.js'
  * 3) add button text argument
  */
 
-const PawsButtons = ({ buttonStyle, textStyle, buttonText, clickFunction }) => {
+export const PawsButtons = ({ buttonStyle, textStyle, buttonText, clickFunction }) => {
     return (
         <Pressable style={styles[buttonStyle]} onPress={ clickFunction }>
             <View>
@@ -30,5 +30,3 @@ const PawsButtons = ({ buttonStyle, textStyle, buttonText, clickFunction }) => {
         </Pressable>
     )
 }
-
-export default PawsButtons;

@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import AsyncStorage from '@react-native-async-storage/async-storage';
-import { Text, View, StyleSheet } from 'react-native';
-import PawsButtons from '../Components/PawsButtons.js';
+import { Text, View } from 'react-native';
+import { PawsButtons } from '../Components/PawsButtons.js';
 import { style_Home as styles } from '../StyleSheets/Styles.js';
 
 /*
@@ -14,7 +13,7 @@ import { style_Home as styles } from '../StyleSheets/Styles.js';
  *      in App.js; it allows us to navigate the user between files/screens
  */
 
-const Home = ({ navigation }) => {
+export const Home = ({ navigation }) => {
     const [render, setRender] = useState(false); // render is used to render the screen after 700 ms
 
     /* We execte on the first render and navigate to the main screen if we are logged in, as 
@@ -48,5 +47,3 @@ const Home = ({ navigation }) => {
         </View>
     );
 }
-
-export default Home;

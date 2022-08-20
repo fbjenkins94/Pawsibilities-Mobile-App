@@ -1,7 +1,7 @@
-﻿import React, { useEffect } from "react";
-import { ScrollView, SafeAreaView, StyleSheet, TextInput, View, Text, Pressable, Image } from "react-native";
+﻿import React from "react";
+import { SafeAreaView, StyleSheet, TextInput, View, Text, Pressable } from "react-native";
 
-const EditProfile = ({ navigation }) => {
+export const ChangePassword = ({ navigation }) => {
     const [currentPassword, onCurrentPassword] = React.useState("");
     const [newPassword, onNewPassword] = React.useState("");
     const [newPasswordError, onNewPasswordError] = React.useState("");
@@ -238,5 +238,3 @@ const styles = StyleSheet.create({
         color: 'white',
     },
 });
-
-export default EditProfile;

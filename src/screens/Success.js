@@ -1,7 +1,8 @@
 ﻿import React, { useEffect } from "react";
-import { ScrollView, SafeAreaView, StyleSheet, TextInput, View, Text, Pressable, Image } from "react-native";
+import { View, Text } from "react-native";
+import { styles_Success as styles } from '../StyleSheets/Styles.js';
 
-const Success = ({ navigation }) => {
+export const Success = ({ navigation }) => {
     const textDisplay = navigation.getParam('PropText');
 
     useEffect(async () => {
@@ -16,20 +17,3 @@ const Success = ({ navigation }) => {
         </View>
     );
 };
-
-const styles = StyleSheet.create({
-    userInfo: {
-        width: '100%',
-        height: 170,
-        justifyContent: 'flex-end',
-        alignItems: 'center',
-    },
-
-    userInfoText: {
-        fontSize: 25,
-        color: '#219DFF',
-        textAlign: 'center',
-    },
-});
-
-export default Success;

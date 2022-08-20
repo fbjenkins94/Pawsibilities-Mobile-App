@@ -1,7 +1,7 @@
-import React, { useEffect } from "react";
-import { ScrollView, SafeAreaView, StyleSheet, TextInput, View, Text, Pressable, Image } from "react-native";
+import React from "react";
+import { SafeAreaView, StyleSheet, TextInput, View, Text, Pressable } from "react-native";
 
-const DeleteProfile = ({ navigation }) => {
+export const DeleteProfile = ({ navigation }) => {
     const [passwordOne, onPasswordOne] = React.useState("");
     const [passwordTwo, onPasswordTwo] = React.useState("");
     const [passwordError, onPasswordError] = React.useState("");
@@ -221,5 +221,3 @@ const styles = StyleSheet.create({
         color: 'white',
     },
 });
-
-export default DeleteProfile;

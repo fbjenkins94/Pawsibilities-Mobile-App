@@ -1,10 +1,10 @@
-import React, { useEffect } from "react";
-import { ScrollView, SafeAreaView, StyleSheet, TextInput, View, Text, Pressable } from "react-native";
+import React from "react";
+import { ScrollView, View } from "react-native";
 import { style_SignUp as styles } from '../StyleSheets/Styles.js';
-import PawsButtons from '../Components/PawsButtons.js';
-import Divider from '../Components/Divider.js';
-import UserInput from '../Components/UserInput.js';
-import UserInputError from '../Components/UserInputError.js';
+import { PawsButtons } from '../Components/PawsButtons.js';
+import { Divider } from '../Components/Divider.js';
+import { UserInput } from '../Components/UserInput.js';
+import { UserInputError } from '../Components/UserInputError.js';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import pawsAPI from '../API/PawsBack.js';
 
@@ -45,7 +45,7 @@ export const SignUp_Adoptions = ({ navigation }) => {
                     buttonStyle={'signUpButton'}
                     textStyle={'signUpText'}
                     buttonText={'Already have an account? Sign in'}
-                    clickFunction={() => navigation.navigate('SignIn_Adoptions')} />
+                    clickFunction={() => navigation.navigate('SignIn')} />
                 <Divider
                     dividerText={'Sign Up'} />
                 <View style={styles.namesContainer}>

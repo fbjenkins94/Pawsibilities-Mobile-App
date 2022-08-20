@@ -2,8 +2,7 @@ import React from 'react';
 import { View, Text } from 'react-native';
 import { style_UserInput as styles } from '../StyleSheets/Styles.js';
 
-
-const UserInputError = ({ error, errorTwo }) => {
+export const UserInputError = ({ error, errorTwo }) => {
     return (
         <View style={errorTwo ? styles.errorNamesContainer : styles.errorNamesContainer2}>
             <View style={errorTwo ? styles.errorTextBoxes : {}}>
@@ -18,5 +17,3 @@ const UserInputError = ({ error, errorTwo }) => {
         </View>
     )
 }
-
-export default UserInputError;

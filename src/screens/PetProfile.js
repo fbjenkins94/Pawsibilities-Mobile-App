@@ -1,8 +1,8 @@
 import React from 'react';
-import { Text, View, StyleSheet, FlatList, Image, Pressable } from 'react-native';
-import NavMenu from '../Components/NavMenu.js';
+import { Text, View, StyleSheet, Image, Pressable } from 'react-native';
+import { NavMenu } from '../Components/NavMenu.js';
 
-const YourApp = () => {
+export const PetProfile = () => {
     return (
         <View style={styles.screen}>
             <Pressable style={styles.petBox}>
@@ -111,4 +111,3 @@ const styles = StyleSheet.create({
         elevation: 5,
     },
 })
-export default YourApp;

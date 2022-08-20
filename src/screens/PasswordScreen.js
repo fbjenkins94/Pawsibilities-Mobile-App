@@ -1,7 +1,7 @@
 import React from "react";
-import { SafeAreaView, StyleSheet, TextInput, View, Text, Pressable } from "react-native";
+import { StyleSheet, TextInput, View, Text } from "react-native";
 
-const UselessTextInput = () => {
+export const Password = () => {
     const [password, onPassword] = React.useState("");
     const [error, onError] = React.useState("");
 
@@ -46,5 +46,3 @@ const styles = StyleSheet.create({
         marginLeft: 12,
     },
 });
-
-export default UselessTextInput;

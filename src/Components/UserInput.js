@@ -3,9 +3,9 @@ import { View, TextInput } from 'react-native';
 import { style_UserInput as styles } from '../StyleSheets/Styles.js';
 
 
-const UserInput = ({ containerStyle, inputStyle, changeFunction, submitFunction, inputValue, inputPlaceholder }) => {
+export const UserInput = ({ containerStyle, inputStyle, changeFunction, submitFunction, inputValue, inputPlaceholder }) => {
     return (
-        <View style={styles[containerStyle]/*styles.userInputContainer*/}>
+        <View style={styles[containerStyle]}>
             <TextInput
                 style={styles[inputStyle]}
                 onChangeText={changeFunction}
@@ -16,5 +16,3 @@ const UserInput = ({ containerStyle, inputStyle, changeFunction, submitFunction,
         </View>
     )
 }
-
-export default UserInput;

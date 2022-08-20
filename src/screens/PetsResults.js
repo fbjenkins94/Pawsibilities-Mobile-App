@@ -1,9 +1,6 @@
 import React from 'react';
 import { Text, View, StyleSheet, FlatList, Image, Pressable, ScrollView } from 'react-native';
-import NavMenu from '../Components/NavMenu.js';
-
-
-
+import { NavMenu } from '../Components/NavMenu.js';
 
 const Dog = ({ navigation, priority }) => {
     DATA = [
@@ -71,7 +68,7 @@ const Dog = ({ navigation, priority }) => {
     );
 }
 
-const PetsScreen = ({ navigation }) => {
+export const PetsResults = ({ navigation }) => {
     return (
         <View style={{ backgroundColor: "white", /*'#F5FCFF'*/ flex: 1 }}>
             <ScrollView>
@@ -96,7 +93,7 @@ const PetsScreen = ({ navigation }) => {
             </ScrollView>
             <NavMenu
                 navOne={() => navigation.navigate('Success', { PropText: 'This page is currently under construction. Check back later!' })}
-                navTwo={() => navigation.navigate('PetsScreen')}
+                navTwo={() => navigation.navigate('PetsResults')}
                 navThree={() => navigation.navigate('UserProfile')}/>
         </View>
     )
@@ -193,4 +190,3 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
     },
 })
-export default PetsScreen;
