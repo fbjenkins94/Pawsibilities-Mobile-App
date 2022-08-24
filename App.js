@@ -32,7 +32,7 @@ const navigator = createStackNavigator(
         Question: Question,
     },
     {
-        initialRouteName: "Home",
+        initialRouteName: "DeleteProfile",
         defaultNavigationOptions: {
             title: "Home Screen",
         },

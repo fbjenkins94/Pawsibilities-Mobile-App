@@ -39,8 +39,8 @@ export const SignUp_Adoptions = ({ navigation }) => {
     }
 
     return (
-        <View style={{ height: '100%', backgroundColor: 'white', }}>
-            <ScrollView style={{ height: '100%', backgroundColor: 'white', }}>
+        <View style={styles.signUpContainer}>
+            <ScrollView>
                 <PawsButtons
                     buttonStyle={'signUpButton'}
                     textStyle={'signUpText'}
@@ -123,8 +123,8 @@ export const SignUp_Shelters = ({ navigation }) => {
     }
 
     return (
-        <View style={{ height: '100%', backgroundColor: 'white', }}>
-            <ScrollView style={{ height: '100%', backgroundColor: 'white', }}>
+        <View style={styles.signUpContainer}>
+            <ScrollView>
                 <PawsButtons
                     buttonStyle={'signUpButton'}
                     textStyle={'signUpText'}

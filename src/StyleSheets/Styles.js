@@ -5,6 +5,27 @@ const screenStyle = {
     height: '100%',
 };
 
+export const style_ChangePassword = {
+    changePasswordContainer: screenStyle,
+
+    directions: {
+        color: '#219DFF',
+        fontSize: 20,
+        textAlign: 'center'
+    },
+
+    scrollView: {
+        height: 120,
+    },
+
+    userInfo: {
+        alignItems: 'center',
+        height: 170,
+        justifyContent: 'flex-end',
+        width: '100%',
+    },
+}
+
 export const style_Divider = StyleSheet.create({
     dividerContainer: {
         flexDirection: 'row',
@@ -25,6 +46,25 @@ export const style_Divider = StyleSheet.create({
         marginHorizontal: 8,
     },
 });
+
+export const style_EditProfile = {
+    blankSpace: {
+        paddingTop: 3
+    },
+
+    editProfileContainer: screenStyle,
+
+    namesContainer: {
+        alignItems: 'center',
+        flexDirection: 'row',
+        justifyContent: 'center',
+    },
+
+    scrollSpace: {
+        height: 100
+    },
+
+}
 
 export const style_Home = StyleSheet.create({
     appScreen: {
@@ -367,6 +407,11 @@ export const style_UserInput = StyleSheet.create({
         marginLeft: 5,
         padding: 10,
         width: '90%',
+    },
+
+    headerText: {
+        fontSize: 14,
+        color: 'lightgray',
     },
 
     smallContainerLeft: {
